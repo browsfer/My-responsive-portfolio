@@ -15,12 +15,9 @@ class MyDesktopScaffold extends StatelessWidget {
       appBar: myAppBar,
       body: const Row(
         children: [
-          //Open drawer
-          MyDrawer(),
-
-          //rest of the body
-
+          //Body
           Expanded(
+            flex: 3,
             child: Column(
               children: [
                 //Grid view with something later
@@ -32,9 +29,16 @@ class MyDesktopScaffold extends StatelessWidget {
                 ),
 
                 //Second part of the body
-                Expanded(child: MyItemsList())
+                Expanded(
+                  child: MyItemsList(),
+                ),
               ],
             ),
+          ),
+
+          //Right side open drawer
+          Expanded(
+            child: MyDrawer(),
           ),
         ],
       ),

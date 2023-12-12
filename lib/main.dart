@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Responsive dashboard',
       theme: ThemeData(
+        fontFamily: 'OpenSans',
         useMaterial3: true,
       ),
       home: ResponsiveLayout(
