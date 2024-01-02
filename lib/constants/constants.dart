@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 var myBackgroundColor = Colors.grey[300];
+var activeNavBarColor = Colors.white;
+var backgroundNavBarColor = const Color(0xFF212121);
 
 var myAppBar = AppBar(
-  backgroundColor: Colors.grey[900],
+  backgroundColor: const Color.fromARGB(255, 33, 33, 33),
   foregroundColor: Colors.white,
 );
+
+var avatarFadeInDuration = const Duration(milliseconds: 500);

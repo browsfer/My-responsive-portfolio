@@ -25,16 +25,16 @@ class MyDrawer extends StatelessWidget {
           children: [
             //My LinkedIn avatar
 
-            const DrawerHeader(
+            DrawerHeader(
               child: ClipPath(
-                clipper: ShapeBorderClipper(
+                clipper: const ShapeBorderClipper(
                   shape: CircleBorder(),
                 ),
                 child: FadeInImage(
-                  placeholder: AssetImage('assets/placeholder.png'),
-                  image: NetworkImage(
+                  placeholder: const AssetImage('assets/placeholder.png'),
+                  image: const NetworkImage(
                       'https://media.licdn.com/dms/image/D5603AQGjn74k0bISlA/profile-displayphoto-shrink_800_800/0/1678993230524?e=1707955200&v=beta&t=rLhwKI7ilDr0KM34dOJ-DYfL9a4qZYnq2IrgadPeR7s'),
-                  fadeInDuration: Duration(milliseconds: 500),
+                  fadeInDuration: avatarFadeInDuration,
                 ),
               ),
             ),

@@ -16,15 +16,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Responsive dashboard',
+      title: 'My responsive portfolio',
       theme: ThemeData(
         fontFamily: 'OpenSans',
         useMaterial3: true,
       ),
-      home: ResponsiveLayout(
-        desktopScaffold: const MyDesktopScaffold(),
-        tabletScaffold: const MyTabletScaffold(),
-        mobileScaffold: const MyMobileScaffold(),
+      home: const ResponsiveLayout(
+        desktopScaffold: MyDesktopScaffold(),
+        tabletScaffold: MyTabletScaffold(),
+        mobileScaffold: MyMobileScaffold(),
       ),
     );
   }
