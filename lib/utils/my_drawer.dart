@@ -24,15 +24,24 @@ class MyDrawer extends StatelessWidget {
         child: Column(
           children: [
             //My LinkedIn avatar
+
             const DrawerHeader(
-              child: CircleAvatar(
-                radius: 52,
-                backgroundImage: NetworkImage(
-                    'https://media.licdn.com/dms/image/D5603AQGjn74k0bISlA/profile-displayphoto-shrink_800_800/0/1678993230524?e=1707955200&v=beta&t=rLhwKI7ilDr0KM34dOJ-DYfL9a4qZYnq2IrgadPeR7s'),
+              child: ClipPath(
+                clipper: ShapeBorderClipper(
+                  shape: CircleBorder(),
+                ),
+                child: FadeInImage(
+                  placeholder: AssetImage('assets/placeholder.png'),
+                  image: NetworkImage(
+                      'https://media.licdn.com/dms/image/D5603AQGjn74k0bISlA/profile-displayphoto-shrink_800_800/0/1678993230524?e=1707955200&v=beta&t=rLhwKI7ilDr0KM34dOJ-DYfL9a4qZYnq2IrgadPeR7s'),
+                  fadeInDuration: Duration(milliseconds: 500),
+                ),
               ),
             ),
             //About me
+
             const Text(
+                style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
                 'Hi, I\'m Kuba, a passionate learner and aspiring Flutter developer with a strong interest in mobile app development. My ultimate goal is to become a skilled Flutter developer and work on challenging projects that allow me to grow my knowledge and expertise. Feel free to connect with me if you\'re interested in collaborating on exciting Flutter projects or if you have any tips or suggestions for me as I continue to develop my skills in this field.'),
             const SizedBox(height: 25),

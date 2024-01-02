@@ -12,7 +12,6 @@ class MyDesktopScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: myBackgroundColor,
-      appBar: myAppBar,
       body: const Row(
         children: [
           //Body
