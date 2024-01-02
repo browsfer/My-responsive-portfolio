@@ -5,9 +5,14 @@ import '../../constants/constants.dart';
 import '../../utils/gridView/my_grid_view.dart';
 import '../../utils/my_items_list.dart';
 
-class MyDesktopScaffold extends StatelessWidget {
-  const MyDesktopScaffold({super.key});
+class MyDesktopScaffold extends StatefulWidget {
+  MyDesktopScaffold({super.key});
 
+  @override
+  State<MyDesktopScaffold> createState() => _MyDesktopScaffoldState();
+}
+
+class _MyDesktopScaffoldState extends State<MyDesktopScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +42,7 @@ class MyDesktopScaffold extends StatelessWidget {
 
           //Right side open drawer
           Expanded(
+            flex: 2,
             child: MyDrawer(),
           ),
         ],

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'OpenSans',
         useMaterial3: true,
       ),
-      home: const ResponsiveLayout(
+      home: ResponsiveLayout(
         desktopScaffold: MyDesktopScaffold(),
         tabletScaffold: MyTabletScaffold(),
         mobileScaffold: MyMobileScaffold(),

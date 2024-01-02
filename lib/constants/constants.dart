@@ -10,3 +10,7 @@ var myAppBar = AppBar(
 );
 
 var avatarFadeInDuration = const Duration(milliseconds: 500);
+
+//WEATHER API KEY
+
+String weatherApiKey = '3c358157b3ef6a4c54ec50c0b6e9e0a1';
