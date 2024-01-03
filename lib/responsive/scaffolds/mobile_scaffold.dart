@@ -3,6 +3,7 @@ import 'package:responsive_project/pages/mobile_aboutme_page.dart';
 import 'package:responsive_project/pages/mobile_findme_page.dart';
 import 'package:responsive_project/pages/mobile_home_page.dart';
 import 'package:responsive_project/utils/my_bottom_nav_bar.dart';
+import 'package:responsive_project/utils/my_button.dart';
 
 class MyMobileScaffold extends StatefulWidget {
   const MyMobileScaffold({super.key});
@@ -29,6 +30,12 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        actions: [
+          MyButton(iconSize: 40),
+        ],
+      ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: _pages[_selectedIndex],
 

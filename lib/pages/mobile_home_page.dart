@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_project/constants/constants.dart';
 import 'package:responsive_project/models/weather_model.dart';
 import 'package:responsive_project/services/weather_service.dart';
+import 'package:responsive_project/theme/theme.dart';
+import 'package:responsive_project/theme/theme_provider.dart';
 import 'package:responsive_project/utils/my_button.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -63,6 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    //Getting theme data
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -96,7 +102,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
           const SizedBox(height: 200),
           Text(
-            isLightTheme ? 'D A R K  M O D E' : 'L I G H T  M O D E',
+            themeProvider.themeData == lightTheme
+                ? 'D A R K  M O D E'
+                : 'L I G H T  M O D E',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           MyButton(iconSize: 50),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_project/theme/theme.dart';
 import 'package:responsive_project/theme/theme_provider.dart';
 import 'package:responsive_project/constants/constants.dart';
 
@@ -28,12 +29,14 @@ class _MyButtonState extends State<MyButton> {
           });
         } else {
           themeProvider.toggleTheme();
-          setState(() {
-            isLightTheme = true;
-          });
+          setState(
+            () {
+              isLightTheme = true;
+            },
+          );
         }
       },
-      icon: isLightTheme ? darkIcon : lightIcon,
+      icon: themeProvider.themeData == darkTheme ? lightIcon : darkIcon,
     );
   }
 }

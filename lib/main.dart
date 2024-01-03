@@ -15,7 +15,7 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(isDark),
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
