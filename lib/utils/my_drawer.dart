@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_project/constants/constants.dart';
+import 'package:responsive_project/utils/my_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -18,7 +19,7 @@ class MyDrawer extends StatelessWidget {
     }
 
     return Drawer(
-      backgroundColor: myBackgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -63,7 +64,8 @@ class MyDrawer extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            const Spacer(),
+            MyButton(),
           ],
         ),
       ),

@@ -11,6 +11,7 @@ class WeatherService {
 
   WeatherService({required this.apiKey});
 
+  //GET WEATHER DATA
   Future<Weather> getWeather(String cityName) async {
     final response = await http.get(
       Uri.parse('$BASE_URL?q=$cityName&appid=$apiKey&units=metric'),
@@ -28,12 +29,13 @@ class WeatherService {
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
     }
+    if (permission == LocationPermission.denied) {}
 
     //FETCH CURRENT LOCATION
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
 
-//CONVERT LOCATION INTO PLACEMARK OBJECTS
+    //CONVERT LOCATION INTO PLACEMARK OBJECTS
     List<Placemark> placemarks =
         await placemarkFromCoordinates(position.latitude, position.longitude);
 

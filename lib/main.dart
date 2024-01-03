@@ -3,9 +3,16 @@ import 'package:responsive_project/responsive/responsive_layout.dart';
 import 'package:responsive_project/responsive/scaffolds/desktop_scaffold.dart';
 import 'package:responsive_project/responsive/scaffolds/mobile_scaffold.dart';
 import 'package:responsive_project/responsive/scaffolds/tablet_scaffold.dart';
+import 'package:provider/provider.dart';
+import 'package:responsive_project/theme/theme_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -17,14 +24,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'My responsive portfolio',
-      theme: ThemeData(
-        fontFamily: 'OpenSans',
-        useMaterial3: true,
-      ),
+      theme: Provider.of<ThemeProvider>(context).themeData,
       home: ResponsiveLayout(
         desktopScaffold: MyDesktopScaffold(),
-        tabletScaffold: MyTabletScaffold(),
-        mobileScaffold: MyMobileScaffold(),
+        tabletScaffold: const MyTabletScaffold(),
+        mobileScaffold: const MyMobileScaffold(),
       ),
     );
   }

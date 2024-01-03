@@ -3,6 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:responsive_project/constants/constants.dart';
 import 'package:responsive_project/models/weather_model.dart';
 import 'package:responsive_project/services/weather_service.dart';
+import 'package:responsive_project/utils/my_button.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -41,10 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
         return 'assets/weather/cloudy.json';
       case 'snow':
         return 'assets/weather/snow.json';
-      case 'storm':
+      case 'thunderstorm':
         return 'assets/weather/storm.json';
       case 'clear':
         return 'assets/weather/sunny.json';
+      case 'drizzle':
+        return 'assets/weather/drizzle.json';
       default:
         return 'assets/weather/sunny.json';
     }
@@ -63,12 +66,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
         children: [
           //City name
-          Text(
-            _weather?.cityName ?? "Loading city...",
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
+          _weather?.cityName == null
+              ? const CircularProgressIndicator()
+              : Text(
+                  _weather!.cityName,
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
 
           //Animation
           Lottie.asset(
@@ -78,10 +84,22 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           //Temperature
+          _weather?.temperature == null
+              ? const SizedBox(
+                  width: 15,
+                  height: 15,
+                  child: CircularProgressIndicator(),
+                )
+              : Text(
+                  '${_weather?.temperature.round().toString()}*C',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+          const SizedBox(height: 200),
           Text(
-            '${_weather?.temperature.round().toString()}*C',
+            isLightTheme ? 'D A R K  M O D E' : 'L I G H T  M O D E',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
+          MyButton(iconSize: 50),
         ],
       ),
     );

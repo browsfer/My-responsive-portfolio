@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_project/constants/constants.dart';
 import 'package:responsive_project/pages/mobile_aboutme_page.dart';
 import 'package:responsive_project/pages/mobile_findme_page.dart';
 import 'package:responsive_project/pages/mobile_home_page.dart';
@@ -30,7 +29,7 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myBackgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: _pages[_selectedIndex],
 
       //Bottom navigation bar

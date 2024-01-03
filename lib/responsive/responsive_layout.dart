@@ -6,7 +6,8 @@ class ResponsiveLayout extends StatelessWidget {
   final Widget tabletScaffold;
 
   const ResponsiveLayout(
-      {super.key, required this.mobileScaffold,
+      {super.key,
+      required this.mobileScaffold,
       required this.desktopScaffold,
       required this.tabletScaffold});
 
@@ -14,7 +15,7 @@ class ResponsiveLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth < 510) {
+        if (constraints.maxWidth < 500) {
           return mobileScaffold;
         } else if (constraints.maxWidth < 1100) {
           return tabletScaffold;

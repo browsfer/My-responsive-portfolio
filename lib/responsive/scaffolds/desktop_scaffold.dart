@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_project/utils/my_drawer.dart';
 
-import '../../constants/constants.dart';
 import '../../utils/gridView/my_grid_view.dart';
 import '../../utils/my_items_list.dart';
 
-class MyDesktopScaffold extends StatefulWidget {
+class MyDesktopScaffold extends StatelessWidget {
   MyDesktopScaffold({super.key});
 
   @override
-  State<MyDesktopScaffold> createState() => _MyDesktopScaffoldState();
-}
-
-class _MyDesktopScaffoldState extends State<MyDesktopScaffold> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: myBackgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: const Row(
         children: [
           //Body
