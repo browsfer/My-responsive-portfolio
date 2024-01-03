@@ -5,11 +5,16 @@ import 'package:responsive_project/responsive/scaffolds/mobile_scaffold.dart';
 import 'package:responsive_project/responsive/scaffolds/tablet_scaffold.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_project/theme/theme_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences themeSettings = await SharedPreferences.getInstance();
+  final isDark = themeSettings.getBool('is_dark') ?? false;
+
   runApp(
     ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+      create: (context) => ThemeProvider(isDark),
       child: MyApp(),
     ),
   );
