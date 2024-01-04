@@ -65,7 +65,7 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            MyButton(),
+            MyButton(iconSize: 40),
           ],
         ),
       ),

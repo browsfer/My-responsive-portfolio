@@ -20,7 +20,8 @@ class myBottomNavBar extends StatelessWidget {
       ),
       child: GNav(
         //Design of bottom navigation bar
-        tabBackgroundColor: Theme.of(context).colorScheme.primary,
+        tabBackgroundColor:
+            Theme.of(context).colorScheme.secondary.withOpacity(0.15),
         gap: 10,
         padding: const EdgeInsets.all(18),
 

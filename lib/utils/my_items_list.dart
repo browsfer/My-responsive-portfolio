@@ -11,7 +11,7 @@ class MyItemsList extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            color: Colors.deepPurple,
+            color: Colors.green[900],
             height: 80,
           ),
         );

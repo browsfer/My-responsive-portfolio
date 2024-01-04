@@ -13,5 +13,5 @@ Icon lightIcon = const Icon(
 );
 Icon darkIcon = const Icon(
   Icons.dark_mode_sharp,
-  color: Colors.black,
+  color: Color.fromARGB(255, 206, 186, 55),
 );
