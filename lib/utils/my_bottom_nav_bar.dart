@@ -13,15 +13,16 @@ class myBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      color: Theme.of(context).appBarTheme.backgroundColor,
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
         vertical: 5.0,
       ),
       child: GNav(
         //Design of bottom navigation bar
-        tabBackgroundColor:
-            Theme.of(context).colorScheme.secondary.withOpacity(0.15),
+        tabBackgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+
         gap: 10,
         padding: const EdgeInsets.all(18),
 

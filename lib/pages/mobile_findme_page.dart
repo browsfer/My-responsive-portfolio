@@ -23,7 +23,10 @@ class FindMePage extends StatelessWidget {
         children: [
           Text(
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onBackground,
+                fontSize: 18,
+              ),
               'To learn more about my work and experience, please visit my LinkedIn profile at and my GitHub profile. I am always looking for new opportunities to collaborate, so feel free to connect with me on either platform.'),
           const SizedBox(height: 50),
           Row(

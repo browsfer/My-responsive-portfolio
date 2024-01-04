@@ -72,7 +72,6 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
         actions: [
           //Animation
           Lottie.asset(
@@ -98,6 +97,9 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
               ? const CircularProgressIndicator()
               : Text(
                   _weather!.cityName,
+                  style: TextStyle(
+                    color: Theme.of(context).appBarTheme.foregroundColor,
+                  ),
                 ),
 
           const Spacer(),

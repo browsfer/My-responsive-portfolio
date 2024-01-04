@@ -41,8 +41,11 @@ class MyDrawer extends StatelessWidget {
             ),
             //About me
 
-            const Text(
-                style: TextStyle(fontSize: 16),
+            Text(
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onBackground,
+                  fontSize: 16,
+                ),
                 textAlign: TextAlign.center,
                 'Hi, I\'m Kuba, a passionate learner and aspiring Flutter developer with a strong interest in mobile app development. My ultimate goal is to become a skilled Flutter developer and work on challenging projects that allow me to grow my knowledge and expertise. Feel free to connect with me if you\'re interested in collaborating on exciting Flutter projects or if you have any tips or suggestions for me as I continue to develop my skills in this field.'),
             const SizedBox(height: 25),
