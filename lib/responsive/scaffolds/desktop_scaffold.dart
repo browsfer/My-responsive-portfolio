@@ -12,7 +12,10 @@ class MyDesktopScaffold extends StatelessWidget {
       body: const Row(
         children: [
           //Body
-          MyProjectsList(),
+          Expanded(
+            flex: 3,
+            child: MyProjectsList(),
+          ),
 
           //Right side open drawer
           Expanded(

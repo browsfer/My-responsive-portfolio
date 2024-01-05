@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_project/constants/constants.dart';
-import 'package:responsive_project/utils/my_button.dart';
+import 'package:responsive_project/utils/my_switch.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -68,7 +68,7 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            MyButton(iconSize: 40),
+            MyAdaptiveSwitch(),
           ],
         ),
       ),

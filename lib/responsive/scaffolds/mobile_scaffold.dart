@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
 import 'package:responsive_project/constants/constants.dart';
 import 'package:responsive_project/models/weather_model.dart';
 import 'package:responsive_project/pages/mobile_aboutme_page.dart';
 import 'package:responsive_project/pages/mobile_findme_page.dart';
 import 'package:responsive_project/pages/mobile_home_page.dart';
 import 'package:responsive_project/services/weather_service.dart';
-import 'package:responsive_project/theme/theme.dart';
-import 'package:responsive_project/theme/theme_provider.dart';
 import 'package:responsive_project/utils/my_bottom_nav_bar.dart';
-import 'package:responsive_project/utils/my_button.dart';
+import 'package:responsive_project/utils/my_switch.dart';
 
 class MyMobileScaffold extends StatefulWidget {
   const MyMobileScaffold({super.key});
@@ -68,7 +65,6 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
   @override
   Widget build(BuildContext context) {
     //Getting theme data
-    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -103,11 +99,9 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
                 ),
 
           const Spacer(),
-          Text(
-            themeProvider.themeData == lightTheme ? 'DARK MODE' : 'LIGHT MODE',
-            style: Theme.of(context).textTheme.labelSmall,
-          ),
-          MyButton(iconSize: 40),
+
+          //THEME SWITCH
+          MyAdaptiveSwitch(),
         ],
       ),
       backgroundColor: Theme.of(context).colorScheme.background,

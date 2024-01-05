@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_project/utils/my_button.dart';
 import 'package:responsive_project/utils/my_drawer.dart';
+import 'package:responsive_project/utils/my_switch.dart';
 import 'package:responsive_project/utils/projects_list/my_projects_list.dart';
 
 class MyTabletScaffold extends StatelessWidget {
@@ -11,7 +11,7 @@ class MyTabletScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        actions: [MyButton()],
+        actions: [MyAdaptiveSwitch()],
       ),
       drawer: const MyDrawer(),
       body: MyProjectsList(),
