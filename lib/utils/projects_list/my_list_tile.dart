@@ -27,6 +27,11 @@ class MyListTile extends StatelessWidget {
     }
 
     return Container(
+      //Minimum size of my list tile
+      constraints: const BoxConstraints(
+        minHeight: 160,
+      ),
+
       //Main container design
       margin: const EdgeInsets.only(bottom: 15),
       padding: const EdgeInsets.only(
@@ -39,46 +44,47 @@ class MyListTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         color: Theme.of(context).colorScheme.secondaryContainer,
       ),
+
       height: height * 0.25,
       width: double.infinity,
 
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Expanded(
-            flex: 1,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                //ICON
-                Icon(
-                  leadingIcon,
-                  size: 60,
-                  color: Theme.of(context).colorScheme.onSecondaryContainer,
-                ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              //ICON
+              Icon(
+                leadingIcon,
+                size: 60,
+                color: Theme.of(context).colorScheme.onSecondaryContainer,
+              ),
 
-                //TITLE
-                Text(
+              //TITLE
+              Expanded(
+                flex: 2,
+                child: Text(
                   title,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onSecondaryContainer,
                     fontSize: 18,
                   ),
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                 ),
-                const Spacer(),
+              ),
+              const Spacer(),
 
-                //GITHUB BUTTON
-                MaterialButton(
-                  onPressed: () {
-                    _launchUrl(
-                      Uri.parse(projectUrl),
-                    );
-                  },
-                  child: Image.asset('assets/github.png', height: 50),
-                ),
-              ],
-            ),
+              //GITHUB BUTTON
+              MaterialButton(
+                onPressed: () {
+                  _launchUrl(
+                    Uri.parse(projectUrl),
+                  );
+                },
+                child: Image.asset('assets/github.png', height: 50),
+              ),
+            ],
           ),
           const Divider(),
           Expanded(

@@ -101,7 +101,7 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
           const Spacer(),
 
           //THEME SWITCH
-          MyAdaptiveSwitch(),
+          const MyAdaptiveSwitch(),
         ],
       ),
       backgroundColor: Theme.of(context).colorScheme.background,

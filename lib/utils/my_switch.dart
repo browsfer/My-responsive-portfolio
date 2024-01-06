@@ -10,8 +10,7 @@ class MyAdaptiveSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Theme provider variable
-    ThemeProvider themeProvider =
-        Provider.of<ThemeProvider>(context, listen: false);
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
