@@ -82,7 +82,10 @@ class MyListTile extends StatelessWidget {
                     Uri.parse(projectUrl),
                   );
                 },
-                child: Image.asset('assets/github.png', height: 50),
+                child: Image.asset(
+                  'assets/github.png',
+                  height: 50,
+                ),
               ),
             ],
           ),
