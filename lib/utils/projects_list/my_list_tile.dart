@@ -18,7 +18,6 @@ class MyListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     //Screen sizes
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
 
     //URL Launching method
     Future<void> _launchUrl(Uri url) async {
@@ -41,45 +40,49 @@ class MyListTile extends StatelessWidget {
         color: Theme.of(context).colorScheme.secondaryContainer,
       ),
       height: height * 0.25,
-      width: width,
+      width: double.infinity,
 
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              //ICON
-              Icon(
-                leadingIcon,
-                size: 60,
-                color: Theme.of(context).colorScheme.onSecondaryContainer,
-              ),
-
-              //TITLE
-              Text(
-                title,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSecondaryContainer,
-                  fontSize: 18,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const Spacer(),
-
-              //GITHUB BUTTON
-              MaterialButton(
-                onPressed: () {
-                  _launchUrl(
-                    Uri.parse(projectUrl),
-                  );
-                },
-                child: Image.asset('assets/github.png', height: 50),
-              ),
-            ],
-          ),
-          Divider(),
           Expanded(
+            flex: 1,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                //ICON
+                Icon(
+                  leadingIcon,
+                  size: 60,
+                  color: Theme.of(context).colorScheme.onSecondaryContainer,
+                ),
+
+                //TITLE
+                Text(
+                  title,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSecondaryContainer,
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const Spacer(),
+
+                //GITHUB BUTTON
+                MaterialButton(
+                  onPressed: () {
+                    _launchUrl(
+                      Uri.parse(projectUrl),
+                    );
+                  },
+                  child: Image.asset('assets/github.png', height: 50),
+                ),
+              ],
+            ),
+          ),
+          const Divider(),
+          Expanded(
+            flex: 2,
             child: ListView(
               children: [
                 //DESCRIPTION
