@@ -6,15 +6,13 @@ class MyProjectsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        padding: const EdgeInsets.only(
-          top: 30,
-          left: 10,
-          right: 10,
-        ),
-        children: myListTiles,
+    return ListView(
+      padding: const EdgeInsets.only(
+        top: 30,
+        left: 10,
+        right: 10,
       ),
+      children: myListTiles,
     );
   }
 }

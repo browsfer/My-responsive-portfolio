@@ -9,7 +9,7 @@ String weatherApiKey = '3c358157b3ef6a4c54ec50c0b6e9e0a1';
 bool isLightTheme = true;
 Icon lightIcon = const Icon(
   Icons.light_mode_sharp,
-  color: Colors.yellow,
+  color: Color.fromARGB(255, 255, 208, 0),
 );
 Icon darkIcon = const Icon(
   Icons.dark_mode_sharp,

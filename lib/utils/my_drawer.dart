@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_project/constants/constants.dart';
 import 'package:responsive_project/utils/my_switch.dart';
@@ -68,7 +69,7 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            MyAdaptiveSwitch(),
+            const MyAdaptiveSwitch(),
           ],
         ),
       ),
