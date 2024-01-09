@@ -91,11 +91,10 @@ class MyListTile extends StatelessWidget {
           ),
           const Divider(),
           Expanded(
-            flex: 2,
-            child: ListView(
-              children: [
-                //DESCRIPTION
-                Text(
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: SingleChildScrollView(
+                child: Text(
                   projectDescription,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onSecondaryContainer,
@@ -103,7 +102,7 @@ class MyListTile extends StatelessWidget {
                   ),
                   softWrap: true,
                 ),
-              ],
+              ),
             ),
           ),
         ],

@@ -14,7 +14,7 @@ class MyTabletScaffold extends StatelessWidget {
         actions: [MyAdaptiveSwitch()],
       ),
       drawer: const MyDrawer(),
-      body: MyProjectsList(),
+      body: const MyProjectsList(),
     );
   }
 }
