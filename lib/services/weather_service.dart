@@ -23,6 +23,7 @@ class WeatherService {
     }
   }
 
+  //GET CURRENT CITY
   Future<String> getCurrentCity() async {
     //GET PERSMISSION
     LocationPermission permission = await Geolocator.checkPermission();
@@ -43,6 +44,7 @@ class WeatherService {
 
     String? city = placemarks[0].locality;
 
+    //RTURN CITY NAME
     return city ?? 'We couldn\'t find your city:(';
   }
 

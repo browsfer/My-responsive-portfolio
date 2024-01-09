@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_project/constants/constants.dart';
 
 import 'package:responsive_project/pages/mobile_aboutme_page.dart';
 import 'package:responsive_project/pages/mobile_findme_page.dart';
 import 'package:responsive_project/pages/mobile_home_page.dart';
+
 import 'package:responsive_project/utils/my_bottom_nav_bar.dart';
 import 'package:responsive_project/utils/my_switch.dart';
 import 'package:responsive_project/utils/weather_widgets.dart';
+
+import 'package:responsive_project/services/weather_service.dart';
+import 'package:app_settings/app_settings.dart';
 
 class MyMobileScaffold extends StatefulWidget {
   const MyMobileScaffold({super.key});
@@ -34,11 +39,34 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
 
   @override
   Widget build(BuildContext context) {
+    final _weather = WeatherService(apiKey: weatherApiKey);
     return Scaffold(
       appBar: AppBar(
-        actions: const [
+        actions: [
           //Weather informations
-          WeatherWidgets(),
+          FutureBuilder(
+            future: _weather.getCurrentCity(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                //Return weather widgets
+                return const WeatherWidgets();
+              } else if (snapshot.hasError) {
+                //Navigate to app location settings
+                return TextButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      AppSettings.openAppSettings(
+                          type: AppSettingsType.location);
+                    });
+                  },
+                  label: const Text('Enable location'),
+                  icon: const Icon(Icons.location_on),
+                );
+              } else {
+                return const CircularProgressIndicator();
+              }
+            },
+          ),
 
           Spacer(),
 
