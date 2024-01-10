@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_project/constants/constants.dart';
 
 import 'package:responsive_project/pages/mobile_aboutme_page.dart';
@@ -43,6 +44,7 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          const SizedBox(width: 5),
           //Weather informations
           FutureBuilder(
             future: _weather.getCurrentCity(),
@@ -63,15 +65,19 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
                   icon: const Icon(Icons.location_on),
                 );
               } else {
-                return const CircularProgressIndicator();
+                return LoadingAnimationWidget.horizontalRotatingDots(
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 50,
+                );
               }
             },
           ),
 
-          Spacer(),
+          const Spacer(),
 
           //THEME SWITCH
-          MyAdaptiveSwitch(),
+          const MyAdaptiveSwitch(),
+          const SizedBox(width: 5),
         ],
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
