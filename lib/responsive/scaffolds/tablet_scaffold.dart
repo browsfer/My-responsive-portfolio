@@ -11,7 +11,7 @@ class MyTabletScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        actions: [MyAdaptiveSwitch()],
+        actions: const [MyAdaptiveSwitch()],
       ),
       drawer: const MyDrawer(),
       body: const MyProjectsList(),

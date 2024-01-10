@@ -50,6 +50,7 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   loading_animation_widget: ^1.2.0+4
   widget_circular_animator: ^1.0.0
+  spring: ^2.0.2
 
 
 dev_dependencies:

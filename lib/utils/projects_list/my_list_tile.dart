@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spring/spring.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyListTile extends StatelessWidget {
@@ -63,7 +64,7 @@ class MyListTile extends StatelessWidget {
 
               //TITLE
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: Text(
                   title,
                   style: TextStyle(
@@ -71,20 +72,24 @@ class MyListTile extends StatelessWidget {
                     fontSize: 18,
                   ),
                   textAlign: TextAlign.left,
+                  maxLines: 3,
                 ),
               ),
               const Spacer(),
 
               //GITHUB BUTTON
-              MaterialButton(
-                onPressed: () {
-                  _launchUrl(
-                    Uri.parse(projectUrl),
-                  );
-                },
-                child: Image.asset(
-                  'assets/github.png',
-                  height: 50,
+              Spring.bubbleButton(
+                animDuration: const Duration(seconds: 1),
+                child: MaterialButton(
+                  onPressed: () {
+                    _launchUrl(
+                      Uri.parse(projectUrl),
+                    );
+                  },
+                  child: Image.asset(
+                    'assets/github.png',
+                    height: 50,
+                  ),
                 ),
               ),
             ],

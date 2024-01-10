@@ -8,9 +8,9 @@ class MyProjectsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.only(
-        top: 30,
-        left: 10,
-        right: 10,
+        top: 15,
+        left: 5,
+        right: 5,
       ),
       children: myListTiles,
     );
@@ -20,7 +20,7 @@ class MyProjectsList extends StatelessWidget {
 List<MyListTile> myListTiles = [
   MyListTile(
     projectUrl: 'https://github.com/browsfer/My-responsive-portfolio',
-    title: 'RESPONSIVE PORTFOLIO',
+    title: 'RESPONSIVE PORTFOLIO(THIS APP)',
     leadingIcon: Icons.person_rounded,
     projectDescription:
         'My portfolio app - a responsive showcase of my skills and expertise, crafted with modern Material3 themes and engineered with efficiency using Provider for state management, Shared Preferences for data persistence and Geolocation for personalized content tailoring.',
