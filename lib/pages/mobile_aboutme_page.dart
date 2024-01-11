@@ -18,29 +18,19 @@ class AboutMePage extends StatelessWidget {
       child: Column(
         children: [
           //My LinkedIn avatar
-
           Expanded(
+            //Animation over my Avatar
             child: WidgetCircularAnimator(
-              innerColor: _themeProvider != lightTheme
-                  ? Theme.of(context).colorScheme.primaryContainer
-                  : Color.fromARGB(255, 48, 145, 16),
-              outerColor: _themeProvider != lightTheme
-                  ? Theme.of(context).colorScheme.secondaryContainer
-                  : Color.fromARGB(255, 21, 103, 12),
-              child: ClipPath(
-                clipper: const ShapeBorderClipper(
-                  shape: CircleBorder(),
-                ),
-                child: FadeInImage(
-                  placeholder: const AssetImage('assets/placeholder.png'),
-                  image: const NetworkImage(
-                      'https://media.licdn.com/dms/image/D5603AQGjn74k0bISlA/profile-displayphoto-shrink_800_800/0/1678993230524?e=1707955200&v=beta&t=rLhwKI7ilDr0KM34dOJ-DYfL9a4qZYnq2IrgadPeR7s'),
-                  fadeInDuration: avatarFadeInDuration,
-                ),
-              ),
-            ),
+                innerColor: _themeProvider != lightTheme
+                    ? Theme.of(context).colorScheme.primaryContainer
+                    : const Color.fromARGB(255, 48, 145, 16),
+                outerColor: _themeProvider != lightTheme
+                    ? Theme.of(context).colorScheme.secondaryContainer
+                    : const Color.fromARGB(255, 21, 103, 12),
+                //My avatar image
+                child: MyLinkedInAvatar),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
 
           //About me
           Text(

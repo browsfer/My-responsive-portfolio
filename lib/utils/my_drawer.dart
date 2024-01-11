@@ -29,17 +29,7 @@ class MyDrawer extends StatelessWidget {
             Expanded(
               flex: 4,
               child: DrawerHeader(
-                child: ClipPath(
-                  clipper: const ShapeBorderClipper(
-                    shape: CircleBorder(),
-                  ),
-                  child: FadeInImage(
-                    placeholder: const AssetImage('assets/placeholder.png'),
-                    image: const NetworkImage(
-                        'https://media.licdn.com/dms/image/D5603AQGjn74k0bISlA/profile-displayphoto-shrink_800_800/0/1678993230524?e=1707955200&v=beta&t=rLhwKI7ilDr0KM34dOJ-DYfL9a4qZYnq2IrgadPeR7s'),
-                    fadeInDuration: avatarFadeInDuration,
-                  ),
-                ),
+                child: MyLinkedInAvatar,
               ),
             ),
 
@@ -58,7 +48,7 @@ class MyDrawer extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
 
             //SOCIAL MEDIA ICONS
             Expanded(
@@ -82,7 +72,7 @@ class MyDrawer extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             //DARK MORDE/LIGHT MODE
             const MyAdaptiveSwitch(),
           ],
