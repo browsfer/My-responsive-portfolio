@@ -22,7 +22,7 @@ Widget MyLinkedInAvatar = CachedNetworkImage(
     height: 200.0,
     decoration: BoxDecoration(
       shape: BoxShape.circle,
-      image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
+      image: DecorationImage(image: imageProvider, fit: BoxFit.fitHeight),
     ),
   ),
   imageUrl:
