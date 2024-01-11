@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // LIGHT THEME
 ThemeData lightTheme = ThemeData(
-  fontFamily: 'OpenSans',
+  fontFamily: 'Montserrat',
   useMaterial3: true,
   brightness: Brightness.light,
 
@@ -45,7 +45,7 @@ ThemeData lightTheme = ThemeData(
 
 //DARK THEME
 ThemeData darkTheme = ThemeData(
-  fontFamily: 'OpenSans',
+  fontFamily: 'Montserrat',
   useMaterial3: true,
   brightness: Brightness.dark,
 

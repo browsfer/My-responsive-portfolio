@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:spring/spring.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -65,14 +66,14 @@ class MyListTile extends StatelessWidget {
               //TITLE
               Expanded(
                 flex: 3,
-                child: Text(
+                child: AutoSizeText(
                   title,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onSecondaryContainer,
                     fontSize: 18,
                   ),
                   textAlign: TextAlign.left,
-                  maxLines: 3,
+                  maxLines: 2,
                 ),
               ),
               const Spacer(),
@@ -95,11 +96,13 @@ class MyListTile extends StatelessWidget {
             ],
           ),
           const Divider(),
+
+          //PROJECT DESCRIPTION
           Expanded(
             child: Align(
               alignment: Alignment.topLeft,
               child: SingleChildScrollView(
-                child: Text(
+                child: AutoSizeText(
                   projectDescription,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onSecondaryContainer,

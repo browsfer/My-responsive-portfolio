@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,33 +18,44 @@ class FindMePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
         children: [
-          Text(
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
-                fontSize: 18,
-              ),
-              'To learn more about my work and experience, please visit my LinkedIn profile at and my GitHub profile. I am always looking for new opportunities to collaborate, so feel free to connect with me on either platform.'),
+          //Text
+          Flexible(
+            fit: FlexFit.loose,
+            child: AutoSizeText(
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onBackground,
+                  fontSize: 18,
+                ),
+                'To learn more about my work and experience, please visit my LinkedIn profile at and my GitHub profile. I am always looking for new opportunities to collaborate, so feel free to connect with me on either platform.'),
+          ),
           const SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              GestureDetector(
-                child: Image.asset('assets/github.png', height: 50),
-                onTap: () {
-                  _launchUrl(_githubURL);
-                },
+              Flexible(
+                fit: FlexFit.loose,
+                child: GestureDetector(
+                  child: Image.asset('assets/github.png', height: 50),
+                  onTap: () {
+                    _launchUrl(_githubURL);
+                  },
+                ),
               ),
-              const SizedBox(width: 10),
-              GestureDetector(
-                child: Image.asset('assets/linkedin.png', height: 50),
-                onTap: () {
-                  _launchUrl(_linkedinURL);
-                },
+              const SizedBox(width: 30),
+              Flexible(
+                fit: FlexFit.loose,
+                child: GestureDetector(
+                  child: Image.asset('assets/linkedin.png', height: 50),
+                  onTap: () {
+                    _launchUrl(_linkedinURL);
+                  },
+                ),
               ),
             ],
           ),

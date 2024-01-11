@@ -73,7 +73,7 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
             },
           ),
 
-          const Spacer(),
+          Spacer(),
 
           //THEME SWITCH
           const MyAdaptiveSwitch(),
@@ -85,7 +85,9 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
 
       //Bottom navigation bar
       bottomNavigationBar: myBottomNavBar(
-          selectedIndex: _selectedIndex, onTabChange: onTabChange),
+        selectedIndex: _selectedIndex,
+        onTabChange: onTabChange,
+      ),
     );
   }
 }

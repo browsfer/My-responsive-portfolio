@@ -29,7 +29,7 @@ class MyDrawer extends StatelessWidget {
             Expanded(
               flex: 4,
               child: DrawerHeader(
-                child: MyLinkedInAvatar,
+                child: myLinkedInAvatar,
               ),
             ),
 

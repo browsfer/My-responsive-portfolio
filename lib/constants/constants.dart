@@ -16,13 +16,13 @@ Icon darkIcon = const Icon(
 );
 
 //My LinkedIn avatar with loading animation
-Widget MyLinkedInAvatar = CachedNetworkImage(
+Widget myLinkedInAvatar = CachedNetworkImage(
   imageBuilder: (context, imageProvider) => Container(
-    width: 200.0,
-    height: 200.0,
+    width: 100.0,
+    height: 100.0,
     decoration: BoxDecoration(
       shape: BoxShape.circle,
-      image: DecorationImage(image: imageProvider, fit: BoxFit.fitHeight),
+      image: DecorationImage(image: imageProvider, fit: BoxFit.contain),
     ),
   ),
   imageUrl:
