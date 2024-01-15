@@ -7,6 +7,7 @@ import 'package:responsive_project/pages/mobile_findme_page.dart';
 import 'package:responsive_project/pages/mobile_home_page.dart';
 
 import 'package:responsive_project/utils/my_bottom_nav_bar.dart';
+import 'package:responsive_project/utils/my_floating_button.dart';
 import 'package:responsive_project/utils/my_switch.dart';
 import 'package:responsive_project/utils/weather_widgets.dart';
 
@@ -42,6 +43,11 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
   Widget build(BuildContext context) {
     final _weather = WeatherService(apiKey: weatherApiKey);
     return Scaffold(
+      //
+      //MUSIC BUTTON
+      floatingActionButton: const MyFloatingActionButton(),
+
+      //APP BAR WITH WEATHER
       appBar: AppBar(
         actions: [
           const SizedBox(width: 5),
@@ -73,7 +79,7 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
             },
           ),
 
-          Spacer(),
+          const Spacer(),
 
           //THEME SWITCH
           const MyAdaptiveSwitch(),
