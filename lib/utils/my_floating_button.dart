@@ -14,6 +14,19 @@ class MyFloatingActionButton extends StatefulWidget {
 
 class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
     with WidgetsBindingObserver {
+  //When app is in background, music is paused
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.detached ||
+        state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.paused) {
+      player.pause();
+      _showPlayStopButton = false;
+      _isPlaying = false;
+    }
+    super.didChangeAppLifecycleState(state);
+  }
+
   //Global key to initialize tooltip
   final GlobalKey _toolTipKey = GlobalKey();
 

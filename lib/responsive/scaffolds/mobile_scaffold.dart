@@ -25,28 +25,11 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
   //Bottom navigation bar default index
   int _selectedIndex = 0;
 
-  //FloatingButtonDelay
-  bool _showFloatingButton = false;
-
   //Bottom navigation bar tab change
   void onTabChange(int index) {
     setState(() {
       _selectedIndex = index;
     });
-  }
-
-  @override
-  void initState() {
-    //Show floatingactionbutton after 10 seconds
-    Future.delayed(
-      const Duration(seconds: 1),
-      () {
-        setState(() {
-          _showFloatingButton = true;
-        });
-      },
-    );
-    super.initState();
   }
 
   //Pages list
@@ -62,8 +45,7 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
     return Scaffold(
       //
       //MUSIC BUTTON
-      floatingActionButton:
-          _showFloatingButton ? const MyFloatingActionButton() : null,
+      floatingActionButton: const MyFloatingActionButton(),
 
       //APP BAR WITH WEATHER
       appBar: AppBar(
