@@ -40,11 +40,11 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
     final spotify = SpotifyApi(credentials);
     spotify.tracks.get(trackId).then(
       (track) async {
-        String? songName = track.name;
-        if (songName != null) {
+        String? trackName = track.name;
+        if (trackName != null) {
           final yt = YoutubeExplode();
 
-          final result = await yt.search(songName);
+          final result = await yt.search(trackName);
           final videoId = result.first.id.value;
           var manifest = await yt.videos.streamsClient.getManifest(videoId);
 
@@ -99,7 +99,7 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
             message: 'Let\'s dance?',
             preferBelow: false,
             showDuration: const Duration(seconds: 4),
-            textAlign: TextAlign.center,
+            // textAlign: TextAlign.start,
 
             //TOOLTIP STYLE
             decoration: BoxDecoration(

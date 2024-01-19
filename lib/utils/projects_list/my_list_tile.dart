@@ -68,10 +68,7 @@ class MyListTile extends StatelessWidget {
                 flex: 3,
                 child: AutoSizeText(
                   title,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSecondaryContainer,
-                    fontSize: 18,
-                  ),
+                  style: Theme.of(context).textTheme.labelMedium,
                   textAlign: TextAlign.left,
                   maxLines: 2,
                 ),
@@ -104,10 +101,7 @@ class MyListTile extends StatelessWidget {
               child: SingleChildScrollView(
                 child: AutoSizeText(
                   projectDescription,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSecondaryContainer,
-                    fontSize: 15,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                   softWrap: true,
                 ),
               ),

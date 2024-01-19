@@ -28,10 +28,7 @@ class FindMePage extends StatelessWidget {
             fit: FlexFit.loose,
             child: AutoSizeText(
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onBackground,
-                  fontSize: 18,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium,
                 'To learn more about my work and experience, please visit my LinkedIn profile at and my GitHub profile. I am always looking for new opportunities to collaborate, so feel free to connect with me on either platform.'),
           ),
           const SizedBox(height: 50),
