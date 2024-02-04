@@ -1,9 +1,6 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:responsive_project/auth/secrets.dart';
-import 'package:spotify/spotify.dart';
-import 'package:youtube_explode_dart/youtube_explode_dart.dart';
+// import 'package:responsive_project/auth/secrets.dart';
 
 class MyFloatingActionButton extends StatefulWidget {
   const MyFloatingActionButton({super.key});
@@ -13,61 +10,33 @@ class MyFloatingActionButton extends StatefulWidget {
 }
 
 class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
-    with WidgetsBindingObserver {
-  //When app is in background, music is paused
+     {
+  
+
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.detached ||
-        state == AppLifecycleState.inactive ||
-        state == AppLifecycleState.paused) {
-      player.pause();
-      _showPlayStopButton = false;
-      _isPlaying = false;
-    }
-    super.didChangeAppLifecycleState(state);
+  void initState() {
+    //Activate tooltip by ensureTooltipVisible
+    Future.delayed(
+      const Duration(seconds: 5),
+      () {
+        final dynamic tooltip = _toolTipKey.currentState;
+        tooltip?.ensureTooltipVisible();
+      },
+    );
+    super.initState();
+
   }
 
   //Global key to initialize tooltip
   final GlobalKey _toolTipKey = GlobalKey();
 
   //Music variables
-  final player = AudioPlayer();
   String trackId = '6rWblGW0pBcB3uygxBuWZV';
   //Music button animation
   bool _showPlayStopButton = false;
   bool _isPlaying = false;
 
-  @override
-  void initState() {
-    //Activate tooltip by ensureTooltipVisible
-    Future.delayed(
-      Duration.zero,
-      () {
-        final dynamic tooltip = _toolTipKey.currentState;
-        tooltip?.ensureTooltipVisible();
-      },
-    );
-
-    //Play music
-    final credentials = SpotifyApiCredentials(clientId, clientSecret);
-    final spotify = SpotifyApi(credentials);
-    spotify.tracks.get(trackId).then(
-      (track) async {
-        String? trackName = track.name;
-        if (trackName != null) {
-          final yt = YoutubeExplode();
-
-          final result = await yt.search(trackName);
-          final videoId = result.first.id.value;
-          var manifest = await yt.videos.streamsClient.getManifest(videoId);
-
-          var audioUrl = manifest.audioOnly.first.url;
-          await player.setSourceUrl(audioUrl.toString());
-        }
-      },
-    );
-    super.initState();
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +53,6 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
               IconButton(
                 onPressed: () {
                   setState(() {
-                    player.resume();
                     _showPlayStopButton = false;
                     _isPlaying = true;
                   });
@@ -94,7 +62,6 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
               IconButton(
                 onPressed: () {
                   setState(() {
-                    player.pause();
                     _showPlayStopButton = false;
                     _isPlaying = false;
                   });
