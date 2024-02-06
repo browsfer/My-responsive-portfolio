@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_project/constants/constants.dart';
+import 'dart:io' show Platform;
 
 import 'package:responsive_project/pages/mobile_aboutme_page.dart';
 import 'package:responsive_project/pages/mobile_findme_page.dart';
@@ -11,7 +12,7 @@ import 'package:responsive_project/utils/my_floating_button.dart';
 import 'package:responsive_project/utils/my_switch.dart';
 import 'package:responsive_project/utils/weather_widgets.dart';
 
-import 'package:responsive_project/services/weather_service.dart';
+import 'package:responsive_project/services/weather_services.dart';
 import 'package:app_settings/app_settings.dart';
 
 class MyMobileScaffold extends StatefulWidget {
@@ -45,7 +46,9 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
     return Scaffold(
       //
       //MUSIC BUTTON
-      floatingActionButton: const MyFloatingActionButton(),
+
+      floatingActionButton:
+          Platform.isAndroid ? const MyFloatingActionButton() : null,
 
       //APP BAR WITH WEATHER
       appBar: AppBar(

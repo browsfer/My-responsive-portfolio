@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'dart:io' show Platform;
+
+import 'package:responsive_project/constants/constants.dart';
 
 // ignore: must_be_immutable
 class myBottomNavBar extends StatelessWidget {
@@ -15,10 +18,7 @@ class myBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Theme.of(context).appBarTheme.backgroundColor,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10.0,
-        vertical: 5.0,
-      ),
+      padding: Platform.isIOS ? navBariOs : navBarAndroid,
       child: GNav(
         //Design of bottom navigation bar
         tabBackgroundColor: Theme.of(context).colorScheme.secondaryContainer,

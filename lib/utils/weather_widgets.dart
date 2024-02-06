@@ -3,7 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
 import 'package:responsive_project/constants/constants.dart';
 import 'package:responsive_project/models/weather_model.dart';
-import 'package:responsive_project/services/weather_service.dart';
+import 'package:responsive_project/services/weather_services.dart';
 
 class WeatherWidgets extends StatefulWidget {
   const WeatherWidgets({super.key});

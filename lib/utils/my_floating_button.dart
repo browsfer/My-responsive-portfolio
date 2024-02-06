@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:lottie/lottie.dart';
-// import 'package:responsive_project/auth/secrets.dart';
+import 'package:responsive_project/services/spotify_services.dart';
 
 class MyFloatingActionButton extends StatefulWidget {
   const MyFloatingActionButton({super.key});
@@ -9,12 +10,11 @@ class MyFloatingActionButton extends StatefulWidget {
   State<MyFloatingActionButton> createState() => _MyFloatingActionButtonState();
 }
 
-class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
-     {
-  
-
+class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
   @override
   void initState() {
+    super.initState();
+
     //Activate tooltip by ensureTooltipVisible
     Future.delayed(
       const Duration(seconds: 5),
@@ -23,20 +23,14 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
         tooltip?.ensureTooltipVisible();
       },
     );
-    super.initState();
-
   }
 
   //Global key to initialize tooltip
   final GlobalKey _toolTipKey = GlobalKey();
 
-  //Music variables
-  String trackId = '6rWblGW0pBcB3uygxBuWZV';
   //Music button animation
   bool _showPlayStopButton = false;
   bool _isPlaying = false;
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -50,19 +44,23 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
             children: [
               //
               //Two buttons to control music
+
+              //Play button
               IconButton(
                 onPressed: () {
+                  SpotifyServices.resume();
                   setState(() {
-                    _showPlayStopButton = false;
                     _isPlaying = true;
                   });
                 },
                 icon: const Icon(Icons.play_circle_outline_rounded),
               ),
+
+              //Pause button
               IconButton(
                 onPressed: () {
+                  SpotifyServices.pause();
                   setState(() {
-                    _showPlayStopButton = false;
                     _isPlaying = false;
                   });
                 },
@@ -76,7 +74,7 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
           alignment: Alignment.bottomRight,
           child: Tooltip(
             key: _toolTipKey,
-            message: 'Let\'s dance?',
+            message: 'Spotify?🎶',
             preferBelow: false,
             showDuration: const Duration(seconds: 4),
             // textAlign: TextAlign.start,
@@ -88,11 +86,15 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton>
             triggerMode: TooltipTriggerMode.manual,
             child: FloatingActionButton(
               //
-              //TURN ON/OFF MUSIC
-              onPressed: () {
-                setState(() {
-                  _showPlayStopButton = !_showPlayStopButton;
-                });
+              //Connect to Spotify only if not connected yet, otherwise show play/pause buttons
+              onPressed: () async {
+                if (!_showPlayStopButton) {
+                  await SpotifyServices.connectToSpotifyRemote();
+                  setState(() {
+                    _isPlaying = true;
+                    _showPlayStopButton = true;
+                  });
+                }
               },
 
               //MUSIC BUTTON ANIMATION

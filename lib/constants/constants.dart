@@ -31,3 +31,16 @@ Widget myLinkedInAvatar = CachedNetworkImage(
       color: Theme.of(context).colorScheme.primary, size: 50),
   errorWidget: (context, url, error) => const Icon(Icons.error),
 );
+
+//Navigation bar padding for iOS
+var navBariOs = const EdgeInsets.only(
+  left: 10.0,
+  right: 10.0,
+  bottom: 20.0,
+  top: 10.0,
+);
+//Navigation bar padding for Android
+var navBarAndroid = const EdgeInsets.symmetric(
+  horizontal: 10.0,
+  vertical: 10.0,
+);
