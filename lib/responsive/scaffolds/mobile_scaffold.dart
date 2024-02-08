@@ -40,6 +40,29 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
     FindMePage(),
   ];
 
+  //Check if device is connected to the internet VARIABLE
+  bool _isConnected = false;
+
+  //Check location permission VARIABLE
+  bool _isLocationEnabled = false;
+
+  @override
+  void initState() {
+    //Set value to network connectivity variable
+    WeatherService.checkConnection().then((value) {
+      setState(() {
+        _isConnected = value;
+      });
+    });
+    //Set value to location permission variable
+    WeatherService.checkLocationPermission().then((value) {
+      setState(() {
+        _isLocationEnabled = value;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final _weather = WeatherService(apiKey: weatherApiKey);
@@ -61,7 +84,7 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
               if (snapshot.hasData) {
                 //Return weather widgets
                 return const WeatherWidgets();
-              } else if (snapshot.hasError) {
+              } else if (_isLocationEnabled == false) {
                 //Navigate to app location settings
                 return TextButton.icon(
                   onPressed: () {
@@ -72,6 +95,17 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
                   },
                   label: const Text('Enable location'),
                   icon: const Icon(Icons.location_on),
+                );
+              } else if (_isConnected == false) {
+                return TextButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      AppSettings.openAppSettings(
+                          type: AppSettingsType.wireless);
+                    });
+                  },
+                  label: const Text('Enable internet'),
+                  icon: const Icon(Icons.wifi),
                 );
               } else {
                 return LoadingAnimationWidget.horizontalRotatingDots(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
 import 'package:responsive_project/constants/constants.dart';
 import 'package:responsive_project/models/weather_model.dart';
+import 'package:responsive_project/services/error_handler.dart';
 import 'package:responsive_project/services/weather_services.dart';
 
 class WeatherWidgets extends StatefulWidget {
@@ -15,7 +15,6 @@ class WeatherWidgets extends StatefulWidget {
 class _WeatherWidgetsState extends State<WeatherWidgets> {
   //Weather service
   final _weatherService = WeatherService(apiKey: weatherApiKey);
-
   Weather? _weather;
 
   //Fetch weather
@@ -29,13 +28,7 @@ class _WeatherWidgetsState extends State<WeatherWidgets> {
         },
       );
     } catch (e) {
-      Fluttertoast.showToast(
-        msg: 'We couldn\'t get weather for you:( Be sure to TURN ON your GPS',
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-      );
+      handleError(e, '_fetchWeather');
     }
   }
 
