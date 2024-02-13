@@ -5,6 +5,18 @@ import 'package:responsive_project/services/error_handler.dart';
 import 'package:spotify_sdk/spotify_sdk.dart';
 
 class SpotifyServices extends SpotifySdk {
+  static Future<void> _showToast(String message,
+      {Color backgroundColor = Colors.green}) async {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 3,
+        backgroundColor: backgroundColor,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
+
   static Future<void> connectToSpotifyRemote() async {
     try {
       var result = await SpotifySdk.connectToSpotifyRemote(
@@ -14,27 +26,12 @@ class SpotifyServices extends SpotifySdk {
 
       if (result == true) {
         await SpotifySdk.play(spotifyUri: 'spotify:track:$trackId');
-
-        Fluttertoast.showToast(
-            msg: 'Connected to Spotify',
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIosWeb: 3,
-            backgroundColor: Colors.green,
-            textColor: Colors.white,
-            fontSize: 16.0);
-      } else {
-        Fluttertoast.showToast(
-            msg: 'Failed to connect to Spotify',
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIosWeb: 3,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            fontSize: 16.0);
+        await _showToast('Connected to Spotify');
       }
     } catch (e) {
-      handleError(e, 'connectToSpotifyRemote');
+      handleError('Failed to connect to Spotify', 'connectToSpotifyRemote', e);
+      await _showToast('Failed to connect to Spotify',
+          backgroundColor: Colors.red);
     }
   }
 
@@ -42,7 +39,9 @@ class SpotifyServices extends SpotifySdk {
     try {
       await SpotifySdk.resume();
     } catch (e) {
-      handleError(e, 'play');
+      handleError('Failed to resume playback', 'resume', e);
+      await _showToast('Failed to resume playback',
+          backgroundColor: Colors.red);
     }
   }
 
@@ -50,7 +49,8 @@ class SpotifyServices extends SpotifySdk {
     try {
       await SpotifySdk.pause();
     } catch (e) {
-      handleError(e, 'pause');
+      handleError('Failed to pause playback', 'pause', e);
+      await _showToast('Failed to pause playback', backgroundColor: Colors.red);
     }
   }
 }

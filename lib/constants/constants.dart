@@ -44,3 +44,10 @@ var navBarAndroid = const EdgeInsets.symmetric(
   horizontal: 10.0,
   vertical: 10.0,
 );
+
+//My loading animation widget
+Widget myLoadingWidget(context) =>
+    LoadingAnimationWidget.horizontalRotatingDots(
+      color: Theme.of(context).colorScheme.primary,
+      size: 50,
+    );
