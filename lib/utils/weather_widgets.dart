@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
-import 'package:responsive_project/constants/constants.dart';
+import 'package:responsive_project/core/connection_check.dart';
+import 'package:responsive_project/core/constants.dart';
 import 'package:responsive_project/models/weather_model.dart';
-import 'package:responsive_project/services/error_handler.dart';
+import 'package:responsive_project/core/error_handler.dart';
 import 'package:responsive_project/services/geolocator_location_services.dart';
 import 'package:responsive_project/services/http_weather_service.dart';
 import 'package:responsive_project/services/weather_animation_service.dart';
@@ -44,7 +45,7 @@ class _WeatherWidgetsState extends State<WeatherWidgets> {
   }
 
   Future<void> _checkConnection() async {
-    bool isConnected = await _weatherService.checkConnection();
+    bool isConnected = await CheckConnection.checkConnection();
     setState(() {
       _isConnected = isConnected;
     });

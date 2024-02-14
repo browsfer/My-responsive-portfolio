@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:responsive_project/models/weather_model.dart';
 
@@ -29,15 +28,6 @@ class HttpWeatherRepository implements WeatherRepository {
       }
     } catch (e) {
       throw Exception('Failed to load weather data due to exception: $e');
-    }
-  }
-
-  Future<bool> checkConnection() async {
-    try {
-      final result = await InternetAddress.lookup('google.com');
-      return result.isNotEmpty && result[0].rawAddress.isNotEmpty;
-    } on SocketException catch (_) {
-      return false;
     }
   }
 }

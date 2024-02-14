@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'dart:io' show Platform;
 
-import 'package:responsive_project/constants/constants.dart';
+import 'package:responsive_project/core/constants.dart';
 
 // ignore: must_be_immutable
 class myBottomNavBar extends StatelessWidget {

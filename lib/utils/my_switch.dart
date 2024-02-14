@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_project/constants/constants.dart';
+import 'package:responsive_project/core/constants.dart';
 import 'package:responsive_project/theme/theme.dart';
 import 'package:responsive_project/theme/theme_provider.dart';
 

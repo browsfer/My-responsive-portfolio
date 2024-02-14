@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_project/constants/constants.dart';
+import 'package:responsive_project/core/constants.dart';
 import 'package:responsive_project/theme/theme.dart';
 import 'package:responsive_project/theme/theme_provider.dart';
 import 'package:widget_circular_animator/widget_circular_animator.dart';

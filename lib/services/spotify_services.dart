@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:responsive_project/auth/secrets.dart';
-import 'package:responsive_project/services/error_handler.dart';
+import 'package:responsive_project/core/error_handler.dart';
 import 'package:spotify_sdk/spotify_sdk.dart';
 
 class SpotifyServices extends SpotifySdk {
