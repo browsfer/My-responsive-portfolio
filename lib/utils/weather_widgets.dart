@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:responsive_project/core/connection_check.dart';
@@ -29,7 +30,8 @@ class _WeatherWidgetsState extends State<WeatherWidgets> {
   //Check if device is connected to the internet VARIABLE
   bool _isConnected = false;
 
-  bool finished = false;
+  //Location permission5
+  bool _hasLocationPermission = false;
 
   //Fetch weather
   Future<void> _fetchWeatherData() async {
@@ -46,12 +48,21 @@ class _WeatherWidgetsState extends State<WeatherWidgets> {
 
   Future<void> _checkConnection() async {
     bool isConnected = await CheckConnection.checkConnection();
+    bool hasLocationPermission = await _locationService.checkPermission();
     setState(() {
       _isConnected = isConnected;
+      _hasLocationPermission = hasLocationPermission;
     });
-    if (isConnected) {
+    if (isConnected && hasLocationPermission) {
       await _fetchWeatherData();
     }
+  }
+
+  void openLocationSettings() {
+    //Open location settings on the device and refresh the state
+    Geolocator.openLocationSettings().then((_) {
+      _checkConnection();
+    });
   }
 
   @override
@@ -67,6 +78,12 @@ class _WeatherWidgetsState extends State<WeatherWidgets> {
         onPressed: _checkConnection,
         icon: const Icon(Icons.wifi),
         label: const Text('No internet connection'),
+      );
+    } else if (!_hasLocationPermission) {
+      return TextButton.icon(
+        onPressed: openLocationSettings,
+        icon: const Icon(Icons.location_on),
+        label: const Text('Enable location'),
       );
     } else if (_weather == null) {
       return Center(child: myLoadingWidget(context));

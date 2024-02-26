@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_project/core/constants.dart';
 import 'package:responsive_project/theme/theme.dart';
 import 'package:responsive_project/theme/theme_provider.dart';
 import 'package:widget_circular_animator/widget_circular_animator.dart';
@@ -25,18 +24,19 @@ class AboutMePage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           //My LinkedIn avatar
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: WidgetCircularAnimator(
-                innerColor: _themeProvider != lightTheme
-                    ? Theme.of(context).colorScheme.primaryContainer
-                    : const Color.fromARGB(255, 48, 145, 16),
-                outerColor: _themeProvider != lightTheme
-                    ? Theme.of(context).colorScheme.secondaryContainer
-                    : const Color.fromARGB(255, 21, 103, 12),
+          WidgetCircularAnimator(
+            innerColor: _themeProvider != lightTheme
+                ? Theme.of(context).colorScheme.primaryContainer
+                : const Color.fromARGB(255, 48, 145, 16),
+            outerColor: _themeProvider != lightTheme
+                ? Theme.of(context).colorScheme.secondaryContainer
+                : const Color.fromARGB(255, 21, 103, 12),
 
-                //My avatar image
-                child: myLinkedInAvatar),
+            //My avatar image
+            child: const CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('assets/avatar.png'),
+            ),
           ),
           const SizedBox(height: 20),
 

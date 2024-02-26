@@ -13,7 +13,7 @@ class MyTabletScaffold extends StatelessWidget {
       appBar: AppBar(
         actions: const [MyAdaptiveSwitch()],
       ),
-      drawer: const MyDrawer(),
+      drawer: MyDrawer(),
       body: const MyProjectsList(),
     );
   }

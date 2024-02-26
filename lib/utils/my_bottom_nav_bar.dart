@@ -5,10 +5,10 @@ import 'dart:io' show Platform;
 import 'package:responsive_project/core/constants.dart';
 
 // ignore: must_be_immutable
-class myBottomNavBar extends StatelessWidget {
+class MyBottomNavBar extends StatelessWidget {
   int selectedIndex;
   void Function(int) onTabChange;
-  myBottomNavBar({
+  MyBottomNavBar({
     required this.selectedIndex,
     required this.onTabChange,
     super.key,

@@ -61,7 +61,7 @@ class _MyMobileScaffoldState extends State<MyMobileScaffold> {
       body: _pages[_selectedIndex],
 
       //Bottom navigation bar
-      bottomNavigationBar: myBottomNavBar(
+      bottomNavigationBar: MyBottomNavBar(
         selectedIndex: _selectedIndex,
         onTabChange: onTabChange,
       ),

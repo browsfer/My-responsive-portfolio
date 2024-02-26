@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_project/core/constants.dart';
 import 'package:responsive_project/utils/my_switch.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  MyDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +25,13 @@ class MyDrawer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             //My LinkedIn avatar
-            Expanded(
+            const Expanded(
               flex: 4,
               child: DrawerHeader(
-                child: myLinkedInAvatar,
+                child: CircleAvatar(
+                  radius: 40,
+                  backgroundImage: AssetImage('assets/avatar.png'),
+                ),
               ),
             ),
 

@@ -9,10 +9,10 @@ class MyDesktopScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: const Row(
+      body: Row(
         children: [
           //Body
-          Expanded(
+          const Expanded(
             flex: 3,
             child: MyProjectsList(),
           ),
